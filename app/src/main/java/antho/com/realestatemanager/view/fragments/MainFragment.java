@@ -34,8 +34,6 @@ public class MainFragment extends BaseFragment
     {
         coordinatorLayout = (CoordinatorLayout)inflater.inflate(R.layout.fragment_main, container, false);
 
-
-
         filterIcon = coordinatorLayout.findViewById(R.id.filterIcon);
         LinearLayout contentLayout = coordinatorLayout.findViewById(R.id.contentLayout);
 

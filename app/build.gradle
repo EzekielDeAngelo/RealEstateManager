@@ -24,23 +24,18 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Android
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
-    implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
     implementation "androidx.constraintlayout:constraintlayout:2.0.0-alpha4"
-    implementation "androidx.navigation:navigation-fragment:$navigationVersion"
-    implementation "androidx.navigation:navigation-ui:$navigationVersion"
-    testImplementation 'junit:junit:4.12'
-
+    // Firebase
+    implementation "com.google.firebase:firebase-core:$firebaseVersion"
+    implementation 'com.google.firebase:firebase-auth:16.2.1'
+    implementation 'com.google.android.gms:play-services-auth:16.0.1'
     // ButterKnife
     implementation "com.jakewharton:butterknife:$butterKnifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
-    // Autovalue
-    compileOnly "com.google.auto.value:auto-value:$autoValueVersion"
-    annotationProcessor "com.google.auto.value:auto-value:$autoValueVersion"
-    // Moshi
-    implementation "com.squareup.moshi:moshi:$moshiVersion"
-    annotationProcessor "com.ryanharter.auto.value:auto-value-moshi:$autoValueMoshiVersion"
-    compileOnly "com.ryanharter.auto.value:auto-value-moshi-annotations:$autoValueMoshiVersion"
+    // ArchLifecycle
+    implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
     // Room components
     implementation "android.arch.persistence.room:runtime:$roomVersion"
     annotationProcessor "android.arch.persistence.room:compiler:$roomVersion"
@@ -48,4 +43,16 @@ dependencies {
     // Espresso
     androidTestImplementation 'androidx.test:runner:1.2.0-alpha03'
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    testImplementation 'junit:junit:4.12'
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui:$navigationVersion"
+    // Autovalue
+    compileOnly "com.google.auto.value:auto-value:$autoValueVersion"
+    annotationProcessor "com.google.auto.value:auto-value:$autoValueVersion"
+    // Moshi
+    implementation "com.squareup.moshi:moshi:$moshiVersion"
+    annotationProcessor "com.ryanharter.auto.value:auto-value-moshi:$autoValueMoshiVersion"
+    compileOnly "com.ryanharter.auto.value:auto-value-moshi-annotations:$autoValueMoshiVersion"
 }
+apply plugin: 'com.google.gms.google-services'

@@ -2,9 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/search_item"
+        android:id="@+id/sign_out_menu"
+        android:title="Sign out"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/add_item"
         android:title="Search"
         android:orderInCategory="200"
-        android:icon="@drawable/ic_search_white_24dp"
+        android:icon="@drawable/ic_add"
         app:showAsAction="ifRoom"/>
 </menu>

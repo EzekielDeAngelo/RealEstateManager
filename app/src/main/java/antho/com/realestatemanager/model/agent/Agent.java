@@ -8,6 +8,8 @@ import com.squareup.moshi.Moshi;
 @AutoValue
 public abstract class Agent
 {
+    public abstract  String email();
+    public abstract String password();
     @Json(name="name")
     public abstract String name();
     @Json(name="id")

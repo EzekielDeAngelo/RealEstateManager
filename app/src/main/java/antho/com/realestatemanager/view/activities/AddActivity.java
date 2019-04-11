@@ -1,4 +1,4 @@
-package antho.com.realestatemanager.view;
+package antho.com.realestatemanager.view.activities;
 
 import android.os.Bundle;
 
