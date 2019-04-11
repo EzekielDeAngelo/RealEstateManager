@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "antho.com.realestatemanager"
+        minSdkVersion 26
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0-alpha4"
+    implementation "androidx.navigation:navigation-fragment:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui:$navigationVersion"
+    testImplementation 'junit:junit:4.12'
+
+    // ButterKnife
+    implementation "com.jakewharton:butterknife:$butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
+    // Autovalue
+    compileOnly "com.google.auto.value:auto-value:$autoValueVersion"
+    annotationProcessor "com.google.auto.value:auto-value:$autoValueVersion"
+    // Moshi
+    implementation "com.squareup.moshi:moshi:$moshiVersion"
+    annotationProcessor "com.ryanharter.auto.value:auto-value-moshi:$autoValueMoshiVersion"
+    compileOnly "com.ryanharter.auto.value:auto-value-moshi-annotations:$autoValueMoshiVersion"
+    // Room components
+    implementation "android.arch.persistence.room:runtime:$roomVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$roomVersion"
+    androidTestImplementation "android.arch.persistence.room:testing:$roomVersion"
+    // Espresso
+    androidTestImplementation 'androidx.test:runner:1.2.0-alpha03'
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+}
