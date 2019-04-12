@@ -1,5 +1,4 @@
 package antho.com.realestatemanager;
-/** Main activity **/
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import antho.com.realestatemanager.base.BaseActivity;
 import antho.com.realestatemanager.view.activities.AddActivity;
@@ -18,8 +17,7 @@ import android.widget.LinearLayout;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-/** **/
+/** Load UI element on application startup **/
 public class MainActivity extends BaseActivity
 {
     @BindView(R.id.filterIcon) ImageView filterIcon;

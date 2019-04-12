@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle" >
-    <solid android:color="@color/colorPrimaryDark" />
-    <corners
-        android:bottomLeftRadius="8dp"
-        android:bottomRightRadius="8dp"
-        android:topLeftRadius="8dp"
-        android:topRightRadius="8dp" />
-</shape>
+    <item android:drawable="@color/colorPrimaryDarker" android:state_pressed="true" />
+    <item android:drawable="@color/colorPrimaryDarker" android:state_selected="true" />
+    <item>
+        <inset android:insetLeft="-1dp" android:insetRight="-1dp">
+            <shape android:shape="rectangle">
+                <solid android:color="@color/colorPrimaryDark" />
+                <corners android:radius="8dp" />
+                <padding android:bottom="15dp" android:left="10dp" android:right="10dp" android:top="15dp" />
+            </shape>
+        </inset>
+    </item>
+
+</selector>

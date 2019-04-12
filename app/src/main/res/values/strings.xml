@@ -2,4 +2,5 @@
     <string name="app_name">RealEstateManager</string>
     <string name="quantity">0</string>
     <string name="value">Voici la valeur d\'un bien :</string>
+
 </resources>

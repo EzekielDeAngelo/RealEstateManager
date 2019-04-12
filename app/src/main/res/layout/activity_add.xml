@@ -1,6 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:padding="@dimen/activity_spacing">
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/playfair_display"
+        android:text="Add a new estate listing"
+        android:padding="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+    <Spinner
+        android:id="@+id/type_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_margin"
+        android:background="@drawable/spinner_type_background"
+        android:dropDownWidth="match_parent"
+        android:popupBackground="@color/colorPrimaryDark"
+        android:popupElevation="3dp"
+        android:stateListAnimator="@drawable/spinner_animation"/>
+    <!--<EditText
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_location"
+        android:hint="Select Location"
+        android:layout_margin="@dimen/activity_margin"/>-->
+    <LinearLayout
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_rect_shape"
+        android:layout_margin="@dimen/activity_margin"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:src="@drawable/ic_date_creation"/>
+            <fragment android:id="@+id/autocomplete_fragment"
+               android:layout_marginStart="-20dp"
+                android:layout_marginTop="-10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+
+                />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_price_max"
+            android:hint="Price ($)"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/activity_margin"
+            android:digits="0123456789.,"/>
+        <TextView
+            android:id="@+id/date"
+            style="@android:style/Widget.Holo.Spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/activity_margin"
+            android:textColor="@color/fontPrimary"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textSize="15dp"
+            android:drawablePadding="10dp"
+            android:background="@drawable/round_rect_shape"
+            android:drawableStart="@drawable/ic_date_creation"
+            android:drawableEnd="@drawable/ic_spinner_arrow"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/surface"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_surface_max"
+            android:hint="Surface area (m²)"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/activity_margin"
+            android:digits="0123456789.,"/>
+        <Spinner
+            android:id="@+id/room_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_margin"
+            android:background="@drawable/spinner_rooms_background"
+            android:dropDownWidth="match_parent"
+            android:layout_weight="1"
+            android:popupBackground="@color/colorPrimaryDark"
+            android:popupElevation="3dp"
+            android:stateListAnimator="@drawable/spinner_animation"
+            />
+    </LinearLayout>
+    <Spinner
+        android:id="@+id/agent_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_margin"
+        android:background="@drawable/spinner_agent_background"
+        android:dropDownWidth="match_parent"
+        android:popupBackground="@color/colorPrimaryDark"
+        android:popupElevation="3dp"
+        android:stateListAnimator="@drawable/spinner_animation"/>
+<!--    <EditText
+        android:id="@+id/agent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_agent"
+        android:hint="Agent in charge"
+        android:layout_margin="@dimen/activity_margin"/>-->
+    <EditText
+        android:id="@+id/photos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_photo"
+        android:hint="Photos"
+        android:layout_margin="@dimen/activity_margin"/>
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_description"
+        android:hint="Description"
+        android:layout_weight="1"
+        android:layout_margin="@dimen/activity_margin"/>
+
+    <Button
+        android:id="@+id/edit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:layout_marginBottom="5dp"
+        android:onClick="onClick"
+        android:padding="15dp"
+        android:text="EDIT"
+        android:textStyle="bold" />
 </LinearLayout>

@@ -1,63 +1,45 @@
 package antho.com.realestatemanager.view.activities;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-import androidx.annotation.NonNull;
-import antho.com.realestatemanager.MainActivity;
 import antho.com.realestatemanager.R;
 import antho.com.realestatemanager.base.BaseActivity;
 import butterknife.BindView;
-
+/** Recover password screen to ask for a new password **/
 public class RecoverPasswordActivity extends BaseActivity implements View.OnClickListener
 {
-
     @BindView(R.id.email) EditText email;
-    @BindView(R.id.recover_password_button)
-    Button recoverPasswordButton;
+    @BindView(R.id.recover_password_button) Button recoverPasswordButton;
     private FirebaseAuth mFirebaseAuth;
     private static final String TAG = "Firebase";
+    // Set on click listener and get firebase instance
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        // Set click listeners
         recoverPasswordButton.setOnClickListener(this);
-        // Initialize FirebaseAuth
         mFirebaseAuth = FirebaseAuth.getInstance();
     }
+    // Logic to send an email with a link to recover password
     private void recoverPassword()
     {
-        FirebaseAuth auth = FirebaseAuth.getInstance();
         String emailAddress = email.getText().toString();
-
-        auth.sendPasswordResetEmail(emailAddress)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "Email sent.");
-                        }
+        mFirebaseAuth.sendPasswordResetEmail(emailAddress)
+                .addOnCompleteListener(task ->
+                {
+                    if (task.isSuccessful())
+                    {
+                        Log.d(TAG, "Email sent.");
+                        showToast("A link to create a new password has been sent to " + emailAddress);
                     }
                 });
     }
-    private void updateUI(FirebaseUser user)
-    {
-        if (user != null)
-        {
-            startActivity(new Intent(RecoverPasswordActivity.this, MainActivity.class));
-        }
-    }
+    // On click listener for recover password button
     @Override
     public void onClick(View v)
     {
@@ -68,6 +50,7 @@ public class RecoverPasswordActivity extends BaseActivity implements View.OnClic
                 break;
         }
     }
+    // Return activity layout
     @Override
     protected int layoutRes()
     {

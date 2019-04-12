@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/colorPrimaryDarker" android:state_pressed="true" />
+    <item android:drawable="@color/colorPrimaryDarker" android:state_selected="true" />
+    <item>
+        <layer-list>
+            <item>
+                <inset android:insetLeft="-1dp" android:insetRight="-1dp">
+                    <shape android:shape="rectangle">
+                        <solid android:color="@color/colorPrimaryDark" />
+                        <corners android:radius="8dp" />
+                        <padding android:bottom="15dp" android:left="10dp" android:right="10dp" android:top="15dp" />
+                    </shape>
+                </inset>
+            </item>
+            <item android:drawable="@drawable/ic_agent" android:gravity="left|center" />
+        </layer-list>
+    </item>
+</selector>
